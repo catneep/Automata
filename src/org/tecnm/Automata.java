@@ -3,7 +3,7 @@ package org.tecnm;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
+/**
  *   org: Instituto Tecnológico de Toluca
  *   Lenguajes y Autómatas I
  *   @author: Humberto Avila Ortiz
