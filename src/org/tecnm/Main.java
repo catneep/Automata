@@ -2,6 +2,9 @@ package org.tecnm;
 
 //Clase principal con ejemplos de implementación
 
+import java.io.File;
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -27,6 +30,13 @@ public class Main {
         Automata b = new Automata("cbsaaa", 3, estados, acep);
         if (b.probarCadena("bcaaaa")) System.out.println("Aceptado");
         else System.out.println("No Aceptado");
+        
+        Separador s = new Separador(",.;");
+        try {
+            s.procesar(new File("entrada.txt"));
+        } catch (IOException ex) {
+            System.out.println("El archivo no fue encontrado.");
+        }
         
     }
 }

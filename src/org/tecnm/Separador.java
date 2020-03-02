@@ -39,7 +39,7 @@ public class Separador {
         
         while (sc.hasNext()) entrada = entrada + sc.nextLine();
         
-        generarSalida(getSalida(entrada));
+        generarSalida(entrada);
         
     }
     
@@ -48,10 +48,10 @@ public class Separador {
         
         String salida = "";
         for (int i = 0; i < entrada.length(); i++){
-            if (separadores.contains(entrada.charAt(i)) && entrada.charAt(i - 1) != entrada.charAt(i)){
+            if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) != entrada.charAt(i)){
                 //Nuevo separador encontrado
                 salida = salida + "\n   " + entrada.charAt(i) + "\n";
-            } else if (separadores.contains(entrada.charAt(i)) && entrada.charAt(i - 1) == entrada.charAt(i)){
+            } else if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) == entrada.charAt(i)){
                 //Se repite un mismo separador
                 salida = salida + " " + entrada.charAt(i);
             } else salida = salida + entrada.charAt(i);
