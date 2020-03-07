@@ -16,7 +16,17 @@ public class Lexico {
         salida = new ArrayList<SalidaLexico>();
     }
     
+    public void setEntrada(String fuente){
+        int linea = 1;
+        /*TODO:
+            - analizar código fuente y generar tabla de salida léxico
+            - asignacion de tokens (probablemente agregar bean de token)
+        */
+    }
     
+    public ArrayList<SalidaLexico> getSalida(){
+        return salida;
+    }
     
     
 }
