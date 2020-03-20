@@ -39,6 +39,8 @@ public class Separador {
         
         while (sc.hasNext()) entrada = entrada + sc.nextLine();
         
+        sc.close();
+        
         generarSalida(entrada);
         
     }
@@ -50,7 +52,7 @@ public class Separador {
         for (int i = 0; i < entrada.length(); i++){
             if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) != entrada.charAt(i)){
                 //Nuevo separador encontrado
-                salida = salida + "\n   " + entrada.charAt(i) + "\n";
+                salida = salida + "\n" + entrada.charAt(i) + "\n";
             } else if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) == entrada.charAt(i)){
                 //Se repite un mismo separador
                 salida = salida + " " + entrada.charAt(i);

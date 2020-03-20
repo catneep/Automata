@@ -30,24 +30,31 @@ public class Lexico {
         this.entrada = "";
         while(sc.hasNext()){
             this.entrada += sc.nextLine();
+            this.entrada += "\n";
         }
+        sc.close();
         this.tokens = tokens;
         salida = new ArrayList<Lexema>();
     }
     
-    public void generar(){
+    public String generar(){
         Scanner sc = new Scanner(entrada);
-        String linea; //variable para comparar con elementos de lista de Tokens
+        String linea = ""; //variable para comparar con elementos de lista de Tokens
         int i = 1; //Línea actual en la entrada
         while(sc.hasNext()){
             linea = sc.nextLine();
+            //System.out.println("Línea: " + linea);
             for (int j = 0; j < tokens.size(); j++){
+                //System.out.println("Token: " + tokens.get(j).getToken());
                 if (tokens.get(j).getToken().equals(linea)){
+                    //System.out.println(linea + " es igual a " + tokens.get(j).getToken());
                     salida.add(new Lexema(linea, tokens.get(j).getId(), i));
                 }
             }
-            i++;
+            i++; //Siguiente línea
         }
+        sc.close();
+        return linea;
     }
     
     public ArrayList<Lexema> getSalida() throws IOException{
@@ -58,7 +65,7 @@ public class Lexico {
         generar();
         String s = "";
         for (int i = 0; i < salida.size(); i++){
-            s += salida.get(i).getLexema() + salida.get(i).getId() + salida.get(i).getLinea() + "\n";
+            s += salida.get(i).getLexema() + "   " + salida.get(i).getId() + "   "  + salida.get(i).getLinea() + "\n";
         }
         File f = new File("lexico.txt");
         
