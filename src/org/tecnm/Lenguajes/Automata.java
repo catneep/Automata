@@ -1,4 +1,4 @@
-package org.tecnm;
+package org.tecnm.Lenguajes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

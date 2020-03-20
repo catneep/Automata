@@ -1,4 +1,4 @@
-package org.tecnm;
+package org.tecnm.Lenguajes;
 
 /**
  *   org: Instituto Tecnológico de Toluca

@@ -1,4 +1,4 @@
-package org.tecnm;
+package org.tecnm.Lenguajes;
 
 //Clase principal con ejemplos de implementación
 
