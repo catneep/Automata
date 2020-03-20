@@ -1,9 +1,11 @@
 package org.tecnm;
 
 /**
- *
- * @author havil
+ *   org: Instituto Tecnológico de Toluca
+ *   Lenguajes y Autómatas I
+ *   @author: Humberto Avila Ortiz
  */
+
 public class Token {
     
     private String token;

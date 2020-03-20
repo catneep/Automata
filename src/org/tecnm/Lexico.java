@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * @author havil
+ *   org: Instituto Tecnológico de Toluca
+ *   Lenguajes y Autómatas I
+ *   @author: Humberto Avila Ortiz
  */
+
 public class Lexico {
     
     private String entrada;
