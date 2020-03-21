@@ -50,7 +50,7 @@ public class Separador {
         
         String salida = "";
         for (int i = 0; i < entrada.length(); i++){
-            if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) != entrada.charAt(i) || separadores.contains(String.valueOf(entrada.charAt(i))) && i == 0){
+            if ((separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) != entrada.charAt(i)) || (separadores.contains(String.valueOf(entrada.charAt(i))) && i == 0)){
                 //Nuevo separador encontrado
                 salida = salida + "\n" + entrada.charAt(i) + "\n";
             } else if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) == entrada.charAt(i)){
