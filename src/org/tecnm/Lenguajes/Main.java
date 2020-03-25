@@ -29,7 +29,7 @@ public class Main {
         int [][] tablaAutomataNumero = { //Alfabeto x Estados
                     //q0,q1,q2,q3,q4
             /* . */ {-1, 2,-1, 2,-1},
-            /* 0 */ { 4, 1, 2,-1, 2},
+            /* 0 */ { 3, 1, 2,-1, 2},
             /* 1 */ { 1, 1, 4,-1, 4},
             /* 2 */ { 1, 1, 4,-1, 4},
             /* 3 */ { 1, 1, 4,-1, 4},
@@ -46,11 +46,11 @@ public class Main {
         /* Autómata por parámetros:
               Alfabeto, # Estados, Tabla Estados, Estados de Aceptación */
         Automata numeros = new Automata("0123456789.", 5, tablaAutomataNumero, aceptacionTablaNumeros);
-        if (numeros.probarCadena("24509.1.")) System.out.println("Número Aceptado");
+        if (numeros.probarCadena("0.7201055")) System.out.println("Número Aceptado");
         else System.out.println("Número No Aceptado");
         
         /*****Ejemplo de aplicación para separador de código fuente*****/
-        Separador s = new Separador(",;(){} ");
+        Separador s = new Separador(",;(){} =");
         try {
             s.procesar(new File("entrada.txt"));
         } catch (IOException ex) {
@@ -62,10 +62,9 @@ public class Main {
             ArrayList<Token> at = new ArrayList<Token>();
             at.add(new Token("Inicio",1));
             at.add(new Token("-palabra", 6));
-            at.add(new Token("-numero", 7, numeros));
+            at.add(new Token("-numero", 3, numeros));
             at.add(new Token("-caracter", 8));
             at.add(new Token("//", 4));
-            at.add(new Token("==", 5));
             at.add(new Token("Fin",2));
             Lexico l = new Lexico(new File("salida.txt"), at);
             l.generarArchivo();

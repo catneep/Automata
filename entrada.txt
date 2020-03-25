@@ -1,18 +1,6 @@
 Inicio {
--caracter c
--numero a,b1
--palabra p
+-numero 0.7201055
+-palabra "bruh"
 // hola
-p = "bruh"
--numero d
-si (p == "") {
-	d = 3.5
-}
-si no (3 < 2) {
-	d = 1
-}
-otro {
-	d = 3
-}
-}
+-numero 2.2.3
 Fin

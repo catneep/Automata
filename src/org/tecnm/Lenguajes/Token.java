@@ -17,10 +17,15 @@ public class Token {
         this.id = id;
         this.automata = automata;
     }
+    
+    public boolean hasAutomata() throws NullPointerException{
+        return !automata.equals(null);
+    }
 
     public Token(String token, int id) {
         this.token = token;
         this.id = id;
+        this.automata = null;
     }
 
     public String getToken() {

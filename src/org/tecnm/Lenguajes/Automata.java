@@ -66,9 +66,9 @@ public class Automata {
             
             char[] alf = alfabeto.toCharArray();
             for (int i = 0; i < s.length(); i++){
-                if (Arrays.binarySearch(alf, s.charAt(i)) == -1){
-                    throw new NullPointerException
-                    ("La cadena contiene caracteres que no están en el alfabeto.");
+                if (Arrays.binarySearch(alf, s.charAt(i)) == -1){ return false;
+                    /*throw new NullPointerException
+                    ("La cadena contiene caracteres que no están en el alfabeto: " + s.charAt(i));*/
                 }
             }
             //if (tablaEstados == null) iniciarEstados(); //Inicializa la tabla de estados si no está asignada

@@ -8,12 +8,18 @@ package org.tecnm.Lenguajes;
 
 public class Lexema {
     
-    private String lexema;
-    private int id, linea;
+    private String lexema,id;
+    private int linea;
 
     public Lexema(String lexema, int id, int linea) {
         this.lexema = lexema;
-        this.id = id;
+        this.id = String.valueOf(id);
+        this.linea = linea;
+    }
+    
+    public Lexema(String lexema, String id, int linea) {
+        this.lexema = lexema;
+        this.id = String.valueOf(id);
         this.linea = linea;
     }
 
@@ -25,11 +31,15 @@ public class Lexema {
         this.lexema = lexema;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     public void setId(int id) {
+        this.id = String.valueOf(id);
+    }
+    
+    public void setId(String id) {
         this.id = id;
     }
 

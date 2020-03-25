@@ -1,8 +1,7 @@
 Inicio   1   1
--caracter   8   2
--numero   7   3
--palabra   6   4
-//   4   5
--numero   7   7
-==   5   8
-Fin   2   18
+-numero   7   2
+-palabra   6   3
+//   4   4
+-numero   7   5
+2.2.3   E7   5
+Fin   2   6

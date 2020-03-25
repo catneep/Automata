@@ -40,6 +40,9 @@ public class Lexico {
     private void generar(){
         Scanner sc = new Scanner(entrada);
         String linea = ""; //variable para comparar con elementos de lista de Tokens
+        boolean evaluarAutomata = false;
+        int lastToken = -1;
+        //if (tokens.get(j).hasAutomata() && tokens.get(j).getAutomata().probarCadena(linea))
         int i = 0; //Línea actual en la entrada
         while(sc.hasNext()){
             linea = sc.nextLine();
@@ -52,8 +55,25 @@ public class Lexico {
                 i++; //asigna línea actual en código fuente
             }
             
+            if (evaluarAutomata && lastToken != -1){
+                if (!tokens.get(lastToken).getAutomata().probarCadena(linea)){ //Evalúa errores de sintaxis
+                    salida.add(new Lexema(linea, "E" + tokens.get(lastToken).getId(), i)); //Asigna el error en salida
+                }
+                evaluarAutomata = false;
+                lastToken = -1; //Se reinician los estados de las variables auxiliares para la próxima evaluación
+            }
+            
             for (int j = 0; j < tokens.size(); j++){
-                if (tokens.get(j).getToken().equals(linea)) salida.add(new Lexema(linea, tokens.get(j).getId(), i));
+                if (tokens.get(j).getToken().equals(linea)) {
+                    salida.add(new Lexema(linea, tokens.get(j).getId(), i));
+                    try {
+                        if (tokens.get(j).hasAutomata()){
+                            evaluarAutomata = true;
+                            lastToken = j;
+                        }
+                        else evaluarAutomata = false;
+                    } catch (NullPointerException e){}
+                }
             }
         }
         sc.close();
