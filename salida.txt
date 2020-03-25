@@ -1,61 +1,92 @@
-(The Undertaker comes over and begins measuring Marty
-   .
-) Excuse me
-   ,
- Mr
-   .
- Eastwood
-   ,
- I just need to take your measurement
-   .
- Hey
-   ,
- look
-   ,
- pal
-   ,
- I don't want to buy a suit! (laughs) No
-   ,
- this is for your coffin
-   .
- My coffin?!(The Undertaker comes over and begins measuring Marty
-   .
-) Excuse me
-   ,
- Mr
-   .
- Eastwood
-   ,
- I just need to take your measurement
-   .
- Hey
-   ,
- look
-   ,
- pal
-   ,
- I don't want to buy a suit! (laughs) No
-   ,
- this is for your coffin
-   .
- My coffin?!(The Undertaker comes over and begins measuring Marty
-   .
-) Excuse me
-   ,
- Mr
-   .
- Eastwood
-   ,
- I just need to take your measurement
-   .
- Hey
-   ,
- look
-   ,
- pal
-   ,
- I don't want to buy a suit! (laughs) No
-   ,
- this is for your coffin
-   .
- My coffin?!
+<line>Inicio
+ 
+
+{
+
+<line>-caracter
+ 
+c
+<line>-numero
+ 
+a
+,
+b1
+<line>-palabra
+ 
+p
+<line>//
+ 
+hola
+<line>p
+ 
+=
+ 
+"bruh"
+<line>-numero
+ 
+d
+<line>si
+ 
+
+(
+p
+ 
+==
+ 
+""
+)
+
+ 
+
+{
+
+<line>d
+ 
+=
+ 
+3.5
+<line>
+}
+
+<line>si
+ 
+no
+ 
+
+(
+3
+ 
+<
+ 
+2
+)
+
+ 
+
+{
+
+<line>d
+ 
+=
+ 
+1
+<line>
+}
+
+<line>otro
+ 
+
+{
+
+<line>d
+ 
+=
+ 
+3
+<line>
+}
+
+<line>
+}
+
+<line>Fin

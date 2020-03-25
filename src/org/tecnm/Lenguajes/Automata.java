@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- *   org: Instituto Tecnológico de Toluca
+ *   @org: Instituto Tecnológico de Toluca
  *   Lenguajes y Autómatas I
  *   @author: Humberto Avila Ortiz
  */
@@ -56,7 +56,7 @@ public class Automata {
     }
     
     public boolean probarCadena(String s){
-        if (alfabeto.equals("") || estados.size()<=0 || estadosAceptacion.size() <= 0)
+        if (alfabeto.equals("") || estados.size()<=0 || estadosAceptacion.size() <= 0 || tablaEstados == null)
             throw new NullPointerException
         ("No se tienen los parámetros necesarios para la evaluación.");
         if (estadosAceptacion.contains(Integer.valueOf(0)) && s.equals(""))
@@ -71,27 +71,24 @@ public class Automata {
                     ("La cadena contiene caracteres que no están en el alfabeto.");
                 }
             }
-            
-            if (tablaEstados == null) iniciarEstados(); //Inicializa la tabla de estados si no está asignada
+            //if (tablaEstados == null) iniciarEstados(); //Inicializa la tabla de estados si no está asignada
             int estadoActual = 0; //Guarda el estado en el que se encuentra la verificación
             int posAlfabeto = 0; //Guarda la posicion del caracter actual en el alfabeto
             for (int i = 0; i < s.length(); i++){ //Recorrido de la cadena
-                
-                for (int j = 0; j < alfabeto.length(); j++){
-                    if (alfabeto.charAt(j) == s.charAt(i)) posAlfabeto = j;
-                }//Encuentra la posicion en el alfabeto
-                
-                if (estadoActual >= 0) {
-                    estadoActual = tablaEstados[posAlfabeto][estadoActual];
-                } //Se asigna el siguiente estado
-                else return false; //Se niega la cadena al llegar a un estado no existente                
-                
+                if (estadoActual > -1) {
+                    for (int j = 0; j < alfabeto.length(); j++){
+                        if (alfabeto.charAt(j) == s.charAt(i)) {
+                            posAlfabeto = j;
+                            break;
+                        }
+                    }//Encuentra la posicion en el alfabeto
+
+                estadoActual = tablaEstados[posAlfabeto][estadoActual]; //Se asigna el siguiente estado
+                }
             }
-            
             if (estadosAceptacion.contains(estadoActual)) return true;
-            
         }
-        return false;
+        return false; //Se niega la cadena al llegar a un estado no existente
     }
     
     private void iniciarEstados(){
@@ -124,7 +121,7 @@ public class Automata {
     public void setAlfabeto(String alfabeto) {
         alfabeto = alfabeto.trim();
         char[] alfArray = alfabeto.toCharArray();
-        Arrays.sort(alfArray);
+        Arrays.sort(alfArray);//El Alfabeto debe estar ordenado para completar la búsqueda binaria
         char[] tempArray = new char[alfArray.length];
         int j = 0;
         char car = ' ';

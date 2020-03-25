@@ -1,7 +1,7 @@
 package org.tecnm.Lenguajes;
 
 /**
- *   org: Instituto Tecnológico de Toluca
+ *   @org: Instituto Tecnológico de Toluca
  *   Lenguajes y Autómatas I
  *   @author: Humberto Avila Ortiz
  */

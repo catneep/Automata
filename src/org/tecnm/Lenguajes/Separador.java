@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- *   org: Instituto Tecnológico de Toluca
+ *   @org: Instituto Tecnológico de Toluca
  *   Lenguajes y Autómatas I
  *   @author: Humberto Avila Ortiz
  */
@@ -27,7 +27,7 @@ public class Separador {
     
     public Separador(String separadores){
         this.separadores = new ArrayList<String>();
-        separadores = separadores.trim();
+        //separadores = separadores.trim();
         for (int i = 0; i < separadores.length(); i++){
             this.separadores.add(String.valueOf(separadores.charAt(i)));
         }
@@ -36,8 +36,12 @@ public class Separador {
     public void procesar(File archivoEntrada) throws FileNotFoundException, IOException{
         String entrada = "";
         Scanner sc = new Scanner(archivoEntrada);
+        String s;
         
-        while (sc.hasNext()) entrada = entrada + sc.nextLine();
+        while (sc.hasNext()) {
+            s = sc.nextLine().trim();
+            entrada = entrada + "<line>" + s + "\n";
+        }
         
         sc.close();
         
@@ -49,8 +53,10 @@ public class Separador {
         if (separadores.size() <= 0) return entrada;
         
         String salida = "";
+        String temp;
         for (int i = 0; i < entrada.length(); i++){
-            if ((separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) != entrada.charAt(i)) || (separadores.contains(String.valueOf(entrada.charAt(i))) && i == 0)){
+            if ((separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) != entrada.charAt(i)) ||
+                    (separadores.contains(String.valueOf(entrada.charAt(i))) && i == 0)){
                 //Nuevo separador encontrado
                 salida = salida + "\n" + entrada.charAt(i) + "\n";
             } else if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) == entrada.charAt(i)){
@@ -66,9 +72,9 @@ public class Separador {
   
         if (file.createNewFile())
         {
-            System.out.println("salida.txt creado");
+            System.out.println(file.getName() + " creado");
         } else {
-            System.out.println("salida.txt ya existe");
+            System.out.println(file.getName() + " ya existe");
         }
 
         FileWriter writer = new FileWriter(file);

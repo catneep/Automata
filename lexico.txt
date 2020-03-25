@@ -1,0 +1,8 @@
+Inicio   1   1
+-caracter   8   2
+-numero   7   3
+-palabra   6   4
+//   4   5
+-numero   7   7
+==   5   8
+Fin   2   18

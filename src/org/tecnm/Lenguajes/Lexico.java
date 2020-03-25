@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *   org: Instituto Tecnológico de Toluca
+ *   @org: Instituto Tecnológico de Toluca
  *   Lenguajes y Autómatas I
  *   @author: Humberto Avila Ortiz
  */
@@ -37,24 +37,27 @@ public class Lexico {
         salida = new ArrayList<Lexema>();
     }
     
-    public String generar(){
+    private void generar(){
         Scanner sc = new Scanner(entrada);
         String linea = ""; //variable para comparar con elementos de lista de Tokens
-        int i = 1; //Línea actual en la entrada
+        int i = 0; //Línea actual en la entrada
         while(sc.hasNext()){
             linea = sc.nextLine();
-            //System.out.println("Línea: " + linea);
-            for (int j = 0; j < tokens.size(); j++){
-                //System.out.println("Token: " + tokens.get(j).getToken());
-                if (tokens.get(j).getToken().equals(linea)){
-                    //System.out.println(linea + " es igual a " + tokens.get(j).getToken());
-                    salida.add(new Lexema(linea, tokens.get(j).getId(), i));
-                }
+            if (linea.length() >= 5 && linea.substring(0, 5).equals("<line")) { //Condición encargada de omitir evaluación números de línea
+                //System.out.println("Línea Pre Sub: " + linea);
+                i++; //asigna línea actual en código fuente
+                linea = linea.substring(6);
+                //System.out.println("Línea Post Sub:" + linea);
+            } else if (linea.length() == 6 && linea.substring(0, 5).equals("<line>")) {
+                i++; //asigna línea actual en código fuente
             }
-            i++; //Siguiente línea
+            
+            for (int j = 0; j < tokens.size(); j++){
+                if (tokens.get(j).getToken().equals(linea)) salida.add(new Lexema(linea, tokens.get(j).getId(), i));
+            }
         }
         sc.close();
-        return linea;
+   
     }
     
     public ArrayList<Lexema> getSalida() throws IOException{
@@ -71,9 +74,9 @@ public class Lexico {
         
         if (f.createNewFile())
         {
-            System.out.println("lexico.txt creado");
+            System.out.println(f.getName() + " creado");
         } else {
-            System.out.println("lexico.txt ya existe");
+            System.out.println(f.getName() + " ya existe");
         }
         
         FileWriter writer = new FileWriter(f);

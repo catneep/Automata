@@ -1,1 +1,18 @@
-(The Undertaker comes over and begins measuring Marty.) Excuse me, Mr. Eastwood, I just need to take your measurement. Hey, look, pal, I don't want to buy a suit! (laughs) No, this is for your coffin. My coffin?!(The Undertaker comes over and begins measuring Marty.) Excuse me, Mr. Eastwood, I just need to take your measurement. Hey, look, pal, I don't want to buy a suit! (laughs) No, this is for your coffin. My coffin?!(The Undertaker comes over and begins measuring Marty.) Excuse me, Mr. Eastwood, I just need to take your measurement. Hey, look, pal, I don't want to buy a suit! (laughs) No, this is for your coffin. My coffin?!
+Inicio {
+-caracter c
+-numero a,b1
+-palabra p
+// hola
+p = "bruh"
+-numero d
+si (p == "") {
+	d = 3.5
+}
+si no (3 < 2) {
+	d = 1
+}
+otro {
+	d = 3
+}
+}
+Fin
