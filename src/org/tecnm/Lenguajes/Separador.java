@@ -49,6 +49,22 @@ public class Separador {
         
     }
     
+    public void procesar(String entrada) throws IOException{
+        Scanner sc = new Scanner(entrada);
+        String s;
+        String temp = "";
+        
+        while (sc.hasNext()) {
+            s = sc.nextLine().trim();
+            temp = temp + "<line>" + s + "\n";
+        }
+        
+        sc.close();
+        
+        generarSalida(temp);
+        
+    }
+    
     public String getSalida(String entrada){
         if (separadores.size() <= 0) return entrada;
         
@@ -68,7 +84,7 @@ public class Separador {
         return salida;
     }
     
-    public void generarSalida(String entrada) throws IOException{
+    private void generarSalida(String entrada) throws IOException{
         File file = new File("salida.txt");
   
         if (file.createNewFile())
