@@ -21,6 +21,19 @@ public class Automata {
         estadosAceptacion = new ArrayList<Integer>();
     }
     
+    /**
+     * Crea una nueva instancia de la clase Autómata.
+     * @param alfabeto: Define el conjunto de caracteres que se utilizaran como el
+     * alfabeto para la evaluación del autómata, este es reordenado por el método {@code Arrays.sort().}
+     * @param numEstados: Número de estados que se evaluarán en el autómata.
+     * @param tablaEstados: Tabla de estados para la evaluación del autómata, conteniendo estados nulos como -1,
+     * es evaluado con el formato Alfabeto x Estados, ejemplo:
+     *           q0,q1,q2
+     *      A  {-1, 1,-1},
+     *      B  { 2,-1, 2},
+     *      C  {-1, 2, 1}
+     * @param estadosAceptacion: Arreglo de enteros que contiene los estados de aceptación del autómata, i.e. {@code {1,3,9}}.
+     */
     public Automata(String alfabeto,
             int numEstados,
             int[][] tablaEstados,
@@ -55,10 +68,20 @@ public class Automata {
         }
     }
     
+    /**
+     * Evalúa la cadena ingresada con los datos dados en el constructor de la clase.
+     * @param s: Cadena a evaluar.
+     * @return {@code true} cuando la cadena es aceptada y {@code false} cuando la cadena es rechazada.
+     * @throws {@code NullPointerException} cuando o hay más estados de aceptación que estados a evaluar,
+     * o el alfabeto está vacío, o no existen estados de aceptación, o no está establecida una tabla de estados.
+     */
     public boolean probarCadena(String s){
         if (alfabeto.equals("") || estados.size()<=0 || estadosAceptacion.size() <= 0 || tablaEstados == null)
             throw new NullPointerException
         ("No se tienen los parámetros necesarios para la evaluación.");
+        if (estados.size() < estadosAceptacion.size())
+            throw new NullPointerException
+        ("Hay demasiados estados de aceptación.");
         if (estadosAceptacion.contains(Integer.valueOf(0)) && s.equals(""))
             return true; //Valida el vacío como una cadena válida
         
@@ -102,6 +125,11 @@ public class Automata {
         return tablaEstados;
     }
 
+    /**
+     * Establece la tabla de estados del autómata.
+     * @param tablaEstados: tabla de estados que utiliza el tipo de 
+     * dato {@code int}, usa -1 para indicar un estado nulo.
+     */
     public void setTablaEstados(int[][] tablaEstados) {
         this.tablaEstados = tablaEstados;
     }
@@ -118,10 +146,15 @@ public class Automata {
         return alfabeto;
     }
 
+    /**
+     * Establece el alfabeto que el autómata usará para evaluar cadenas, este
+     * es reordenado en tiempo lineal usando el método {@code Arrays.sort()}.
+     * @param alfabeto cadena que NO evalúa caracteres duplicados.
+     */
     public void setAlfabeto(String alfabeto) {
         alfabeto = alfabeto.trim();
         char[] alfArray = alfabeto.toCharArray();
-        Arrays.sort(alfArray);//El Alfabeto debe estar ordenado para completar la búsqueda binaria
+        Arrays.sort(alfArray); //El Alfabeto debe estar ordenado para completar la búsqueda binaria
         char[] tempArray = new char[alfArray.length];
         int j = 0;
         char car = ' ';
