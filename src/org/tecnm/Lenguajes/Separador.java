@@ -21,10 +21,20 @@ public class Separador {
         separadores = new ArrayList<String>();
     }
     
+    /**
+     * Inicia una nueva instancia de la clase Separador,
+     * usa una lista de cadenas y establece a sus miembros como separadores.
+     * @param separadores
+     */
     public Separador(ArrayList<String> separadores){
         this.separadores = separadores;
     }
     
+    /**
+     * Inicia una nueva instancia de la clase Separador,
+     * evalúa una cadena y establece todos sus caracteres como separadores.
+     * @param separadores
+     */
     public Separador(String separadores){
         this.separadores = new ArrayList<String>();
         //separadores = separadores.trim();
@@ -33,6 +43,13 @@ public class Separador {
         }
     }
     
+    /**
+     * Procesa un archivo y genera una salida en el directorio del proyecto,
+     * ambas usando la extensión {@code .txt}.
+     * @param archivoEntrada
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void procesar(File archivoEntrada) throws FileNotFoundException, IOException{
         String entrada = "";
         Scanner sc = new Scanner(archivoEntrada);
@@ -45,10 +62,16 @@ public class Separador {
         
         sc.close();
         
-        generarSalida(entrada);
+        crearArchivo(entrada);
         
     }
     
+    /**
+     * Procesa una cadena y genera un archivo de salida con la extensión {@code .txt}
+     * encontrado en el directorio del proyecto.
+     * @param entrada
+     * @throws IOException 
+     */
     public void procesar(String entrada) throws IOException{
         Scanner sc = new Scanner(entrada);
         String s;
@@ -61,10 +84,15 @@ public class Separador {
         
         sc.close();
         
-        generarSalida(temp);
+        crearArchivo(temp);
         
     }
     
+    /**
+     * Analiza una cadea y retorna la salida generada por la clase sin generar un archivo nuevo.
+     * @param entrada
+     * @return 
+     */
     public String getSalida(String entrada){
         if (separadores.size() <= 0) return entrada;
         
@@ -84,7 +112,7 @@ public class Separador {
         return salida;
     }
     
-    private void generarSalida(String entrada) throws IOException{
+    private void crearArchivo(String entrada) throws IOException{
         File file = new File("salida.txt");
   
         if (file.createNewFile())
