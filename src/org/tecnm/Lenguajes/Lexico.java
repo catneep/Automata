@@ -65,6 +65,7 @@ public class Lexico {
 
             for (int j = 0; j < tokens.size(); j++){
                 if (tokens.get(j).getToken().equals(linea)) {
+                    noToken = false;
                     salida.add(new Lexema(linea, tokens.get(j).getId(), i));
                     try {
                         if (tokens.get(j).hasAutomata()){
