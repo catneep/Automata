@@ -102,11 +102,11 @@ public class Separador {
             if ((separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) != entrada.charAt(i)) ||
                     (separadores.contains(String.valueOf(entrada.charAt(i))) && i == 0)){
                 //Nuevo separador encontrado
-                //salida = salida + "\n" + entrada.charAt(i) + "\n";
-                salida = salida + "\n";
+                salida = salida + "\n" + entrada.charAt(i) + "\n";
+                //salida = salida + "\n";
             } else if (separadores.contains(String.valueOf(entrada.charAt(i))) && entrada.charAt(i - 1) == entrada.charAt(i)){
                 //Se repite un mismo separador
-                //salida = salida + entrada.charAt(i);
+                salida = salida + entrada.charAt(i);
             } else salida = salida + entrada.charAt(i);
         }
         return salida;
