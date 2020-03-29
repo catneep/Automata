@@ -57,7 +57,7 @@ public class Separador {
         
         while (sc.hasNext()) {
             s = sc.nextLine().trim();
-            entrada = entrada + "\n<line>" + s + "\n";
+            entrada = entrada + "<line>\n" + s + "\n";
         }
         
         sc.close();
@@ -79,7 +79,7 @@ public class Separador {
         
         while (sc.hasNext()) {
             s = sc.nextLine().trim();
-            temp = temp + "<line>" + s + "\n";
+            temp = temp + "<line>\n" + s + "\n";
         }
         
         sc.close();
