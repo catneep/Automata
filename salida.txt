@@ -1,12 +1,24 @@
-<line>Inicio
+<line>
+Inicio
+ 
 
+{
 
-<line>-numero
+<line>
+-numero
+ 
 0.7201055
-<line>-palabra
+<line>
+-palabra
+ 
 "bruh"
-<line>//
+<line>
+//
+ 
 hola
-<line>-numero
+<line>
+-numero
+ 
 2.2.3
-<line>Fin
+<line>
+Fin
